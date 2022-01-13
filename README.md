@@ -68,10 +68,14 @@ Uygulamayı başlattıktan sonra gelen ilk ekranda;
  
  ## Font Seçimi Ekranı
  Bu ekranda CV'nin tümünde kullanılacak olan fontu seçmemiz isteniyor. 
+ 
+ 
  ![image](https://user-images.githubusercontent.com/54938929/149397925-9f2f2c8d-3c53-472d-bb12-f3a1e7f2e197.png)
 
  ## Header Arkaplan Rengi Seçim Ekranı
  Bu ekranda profil fotoğrafımızın üstüne oturacağı zeminin rengini seçmemiz isteniyor.
+ 
+ 
  ![image](https://user-images.githubusercontent.com/54938929/149398078-384e70ec-874f-402a-85cc-4e8f7f114466.png)
 
  ## Son Adım
