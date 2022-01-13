@@ -84,6 +84,9 @@ Uygulamayı başlattıktan sonra gelen ilk ekranda;
  Örnek bir CV:
  
  
+ ![Ekran görüntüsü 2022-01-13 22-47-39](https://user-images.githubusercontent.com/54938929/149399084-cb436304-925e-4cc6-8c38-223a95a2c647.png)
+
+ 
 
  
 
