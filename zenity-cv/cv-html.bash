@@ -27,8 +27,6 @@ font=`zenity --list \
       `
       
 IFS='|' read -r -a fontArray <<< "$font"
-
-get_theme
       
 
 }
@@ -42,7 +40,7 @@ profile_pic=`zenity --file-selection --title="Lütfen Profil Fotoğrafı Seçini
 		 		0)
 		 			IFS='/' read -r -a profile_pic_array <<< "$profile_pic"
 		 			
-		 			
+		 			echo "$profile_pic"
 		        		cp  "$profile_pic"  "./images/${profile_pic_array[-1]}";;
 		        		
 		        		
@@ -74,7 +72,7 @@ bg_pic=`zenity --file-selection --title="Lütfen Arkaplan Fotoğrafı Seçiniz (
 		 		0)
 		 			IFS='/' read -r -a bg_pic_array <<< "$bg_pic"
 		 			
-		 			
+		 			echo "$bg_pic"
 		        		cp  "$bg_pic"  "./images/${bg_pic_array[-1]}";;
 		        		
 		        		
@@ -301,7 +299,7 @@ user=`zenity --forms --title="CV Bilgileri" \
 	
 `
 IFS=',' read -r -a array <<< "$user"
-
+echo "${array[*]}"
 
 case $? in
     0)
@@ -472,7 +470,7 @@ case $? in
 </body>
 </html>"
 	
-        
+        get_theme
         
         
         ;;
