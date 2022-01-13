@@ -6,7 +6,7 @@ Bu uygulama, Bursa Teknik Üniversitesi Bilgisayar Mühendisliği, 3. sınıf Li
 Proje tanıtım videosuna;
 
 <br>
-**https://youtu.be/oCknl7wdRUY**
+** https://youtu.be/oCknl7wdRUY **
 <br>
 adresinden erişebilirsiniz.
 
