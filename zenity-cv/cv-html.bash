@@ -27,59 +27,70 @@ font=`zenity --list \
       `
       
 IFS='|' read -r -a fontArray <<< "$font"
+
+get_theme
       
 
 }
 
 get_pp(){
 profile_pic=`zenity --file-selection --title="Lütfen Profil Fotoğrafı Seçiniz (jpg,png,jpeg)"`
-if [ `echo "$profile_pic" | grep .jpg$` ] || [ `echo "$profile_pic" | grep .png$` ] || [ `echo "$profile_pic" | grep .jpeg$` ] 
-	then
-		case $? in
-         		0)
-         			IFS='/' read -r -a profile_pic_array <<< "$profile_pic"
-         			
-         			echo "$profile_pic"
-                		cp  "$profile_pic"  "./images/${profile_pic_array[-1]}";;
-                		
-         		1)
-                		echo "No file selected.";;
-        		-1)
-                		echo "An unexpected error has occurred.";;
-       
-		esac
-	 else
-  		echo "Lütfen belirtilen formatlarda bir resim seçiniz."
-  		return
 
-fi
+	if [ `echo "$profile_pic" | grep .jpg$` ] || [ `echo "$profile_pic" | grep .png$` ] || [ `echo "$profile_pic" | grep .jpeg$` ] 
+		then
+			case $? in
+		 		0)
+		 			IFS='/' read -r -a profile_pic_array <<< "$profile_pic"
+		 			
+		 			
+		        		cp  "$profile_pic"  "./images/${profile_pic_array[-1]}";;
+		        		
+		        		
+		 		1)
+		        		echo "No file selected."
+		        	        return;;
+				-1)
+		        		echo "An unexpected error has occurred.";;
+	       
+			esac
+	get_bg
+		 else
+	  		echo "Lütfen belirtilen formatlarda bir resim seçiniz."
+	  		return
+
+	fi
 
 
 
 }
 get_bg(){
 bg_pic=`zenity --file-selection --title="Lütfen Arkaplan Fotoğrafı Seçiniz (jpg,png,jpeg)"`
-if [ `echo "$bg_pic" | grep .jpg$` ] || [ `echo "$bg_pic" | grep .png$` ] || [ `echo "$bg_pic" | grep .jpeg$` ] 
-	then
-		case $? in
-         		0)
-         			IFS='/' read -r -a bg_pic_array <<< "$bg_pic"
-         			
-         			echo "$bg_pic"
-                		cp  "$bg_pic"  "./images/${bg_pic_array[-1]}";;
-                		
-         		1)
-                		echo "No file selected.";;
-        		-1)
-                		echo "An unexpected error has occurred.";;
-       
-		esac
-	 else
-  		echo "Lütfen belirtilen formatlarda bir resim seçiniz."
-  		return
 
-fi
+	if [ `echo "$bg_pic" | grep .jpg$` ] || [ `echo "$bg_pic" | grep .png$` ] || [ `echo "$bg_pic" | grep .jpeg$` ] 
 
+
+		then
+			case $? in
+		 		0)
+		 			IFS='/' read -r -a bg_pic_array <<< "$bg_pic"
+		 			
+		 			
+		        		cp  "$bg_pic"  "./images/${bg_pic_array[-1]}";;
+		        		
+		        		
+		 		1)
+		        		echo "No file selected."
+		        		return;;
+				-1)
+		        		echo "An unexpected error has occurred.";;
+	       
+			esac
+		get_font
+		 else
+	  		echo "Lütfen belirtilen formatlarda bir resim seçiniz."
+	  		return
+
+	fi
 
 
 }
@@ -95,23 +106,25 @@ education=`zenity --forms --title="Egitim Bilgileri" \
 	
 	
 `
-IFS=',' read -r -a egitimArray <<< "$education"
-edHtml=""
-for i in "${egitimArray[@]}"
-do
-   : 
-   edHtml+="
-   
-   <li class=\"list-group-item\">&#9830;  ${i}</li>
-   
-   "
-   
-   
+
+	IFS=',' read -r -a egitimArray <<< "$education"
+	edHtml=""
+	for i in "${egitimArray[@]}"
+	do
+	   : 
+	   edHtml+="
+	   
+	   <li class=\"list-group-item\">&#9830;  ${i}</li>
+	   
+	   "
+	   
+	   
 
 
 
-done
-echo "${egitimArray[*]}"
+	done
+	get_pp
+
 }
 get_abilities(){
 
@@ -124,23 +137,26 @@ abilities=`zenity --forms --title="Yetenekler" \
 	
 	
 `
-IFS=',' read -r -a yetenekArray <<< "$abilities"
-abHtml=""
-for i in "${yetenekArray[@]}"
-do
-   : 
-   abHtml+="
-   <span class=\"badge badge-primary badge-pill\"></span>\
-   <li class=\"list-group-item\">&#9830;  ${i}</li>
-   
-   "
-   
-   
+
+	IFS=',' read -r -a yetenekArray <<< "$abilities"
+	abHtml=""
+	for i in "${yetenekArray[@]}"
+	do
+	   : 
+	   abHtml+="
+	   <span class=\"badge badge-primary badge-pill\"></span>\
+	   <li class=\"list-group-item\">&#9830;  ${i}</li>
+	   
+	   "
+	   
+	   
 
 
 
-done
-echo "${yetenekArray[*]}"
+	done
+	get_experience
+
+
 }
 get_experience(){
 
@@ -153,23 +169,25 @@ experience=`zenity --forms --title="Yetenekler" \
 	
 	
 `
-IFS=',' read -r -a deneyimArray <<< "$experience"
-expHtml=""
-for i in "${deneyimArray[@]}"
-do
-   : 
-   expHtml+="
-   <span class=\"badge badge-primary badge-pill\"></span>\
-   <li class=\"list-group-item\">&#9830;  ${i}</li>
-   
-   "
-   
-   
+
+	IFS=',' read -r -a deneyimArray <<< "$experience"
+	expHtml=""
+	for i in "${deneyimArray[@]}"
+	do
+	   : 
+	   expHtml+="
+	   <span class=\"badge badge-primary badge-pill\"></span>\
+	   <li class=\"list-group-item\">&#9830;  ${i}</li>
+	   
+	   "
+	   
+	   
 
 
 
-done
-echo "${deneyimArray[*]}"
+	done
+	get_education
+
 }
 
 get_theme(){
@@ -283,16 +301,16 @@ user=`zenity --forms --title="CV Bilgileri" \
 	
 `
 IFS=',' read -r -a array <<< "$user"
-echo "${array[*]}"
+
 
 case $? in
     0)
     	get_abilities
-    	get_experience
-    	get_education
-    	get_pp
-    	get_bg
-    	get_font
+    	
+    	
+    	
+    	
+    	
     	html="<html lang=\"tr\">
 <head>
     <meta charset=\"UTF-8\">
@@ -454,7 +472,7 @@ case $? in
 </body>
 </html>"
 	
-        get_theme
+        
         
         
         ;;
@@ -469,4 +487,3 @@ esac
 }
 
 get_user_info
-
