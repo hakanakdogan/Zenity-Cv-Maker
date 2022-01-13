@@ -22,7 +22,24 @@ Proje dosyalarını indirdikten sonra klasöre konumlanın ve shell açın. Ard�
 bash cv-html.bash
 ```
 komutu ile uygulamayı çalıştırın.
-Ardından, gerekli bilgileri girip CV' nize ulaşabilirsiniz.
+Ardından,
+
+## İlk ekran
+Uygulamayı başlattıktan sonra gelen ilk ekranda;
+  -Ad
+  -Soyad
+  -Email
+  -Telefon
+  -Hakkında
+  -Github
+  Alanları bulunmakta bu alanları araya virgül koymadan dolduruyoruz.
+  
+ ## İkinci ekran
+ Bu ekranda yeteneklerimizi girmemiz isteniyor, aralarında virgül olacak şekilde yeteneklerimizi giriyoruz.
+ 
+ ## İkinci ekran
+ Bu ekranda yeteneklerimizi girmemiz isteniyor, aralarında virgül olacak şekilde yeteneklerimizi giriyoruz.
+ 
 
 
 
