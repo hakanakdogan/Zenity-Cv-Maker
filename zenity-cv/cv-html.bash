@@ -3,6 +3,7 @@ html=""
 
 
 css=""
+error=0
 export_file(){
 	echo "$html" > "./index.html"
 	echo "$css" > "./st.css"
@@ -27,7 +28,7 @@ font=`zenity --list \
       `
       
 IFS='|' read -r -a fontArray <<< "$font"
-      
+
 
 }
 
@@ -46,6 +47,7 @@ profile_pic=`zenity --file-selection --title="Lütfen Profil Fotoğrafı Seçini
 		        		
 		 		1)
 		        		echo "No file selected."
+		        		
 		        	        return;;
 				-1)
 		        		echo "An unexpected error has occurred.";;
@@ -54,6 +56,7 @@ profile_pic=`zenity --file-selection --title="Lütfen Profil Fotoğrafı Seçini
 	get_bg
 		 else
 	  		echo "Lütfen belirtilen formatlarda bir resim seçiniz."
+	  		error=1
 	  		return
 
 	fi
@@ -86,6 +89,7 @@ bg_pic=`zenity --file-selection --title="Lütfen Arkaplan Fotoğrafı Seçiniz (
 		get_font
 		 else
 	  		echo "Lütfen belirtilen formatlarda bir resim seçiniz."
+	  		error=1
 	  		return
 
 	fi
@@ -470,7 +474,12 @@ case $? in
 </body>
 </html>"
 	
-        get_theme
+if [[ "$error" -eq 0 ]]; then
+    get_theme
+
+else
+    return
+fi
         
         
         ;;
